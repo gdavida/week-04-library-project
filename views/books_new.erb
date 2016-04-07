@@ -1,0 +1,36 @@
+
+<% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |m| %>
+    <p>Error: <%= m %></p>
+  <% end %>
+<% end %>
+
+<h1>New Book</h1>
+
+<form action="/books" method="post">
+  Title:<input type="text" name="title"><br>
+  Author:<input type="text", name="author"><br>
+  ISBN:<input type="text", name="isbn"><br>
+
+ <%# ##  Need to add checked_out / Checked_in area here ##  %>
+
+  <select name="library_id">
+    <option>No Library</option>
+    <% @libraries.each do |library| %>
+      <option value="<%= library.id %>">
+        <%= library.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <select name="patron_id">
+    <option>No Patron</option>
+    <% @patrons.each do |patron| %>
+      <option value="<%= patron.id %>">
+        <%= patron.name %>
+      </option>
+    <% end %>
+  </select>
+  
+  <input type="submit" value="New Book!">
+</form>

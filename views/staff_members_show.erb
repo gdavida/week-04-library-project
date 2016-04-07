@@ -1,0 +1,13 @@
+<% if @staff_member %>
+  <h1><%= @staff_member.name %></h1>
+
+  <p><em>Name:</em> <%= @staff_member.name %></p>
+  <p><em>Email:</em> <%= @staff_member.email %></p>
+  <p><em>Library:</em> <%= @staff_member.library ? @staff_member.library : "No Library" %></p>
+  <p><a href="/staff_members/<%= @staff_member.id %>/edit">Edit</a></p>
+<% else %>
+  <p>No staff_member of that ID exists</p>
+<% end %>
+
+
+<p><a href="/staff_members">Back to All Staff Members</a></p>

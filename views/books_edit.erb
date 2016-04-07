@@ -1,0 +1,37 @@
+<h1>Edit: <%= @book.title %></h1>
+
+<form action="/books/<%= @book.id %>" method="post">
+  Title:<input type="text" name="title" value="<%= @book.title %>"><br>
+  Author:<input type="text" name="author" value="<%= @book.author %>"><br>
+  ISBN:<input type="text", name="isbn" value="<%= @book.isbn %>"><br>
+<!--   # vvv select menu bc book belongs to library
+ -->
+  <select name="library">
+    <option>No Library</option>
+	    <% @libraries.each do |library| %>
+	      <% if library.id == @book.library%>
+	        <% selected = "selected" %>
+	      <% else %>
+	        <% selected = "" %>
+	      <% end %>
+     <option value="<%= library.id %>" <%= selected %>>
+       <%= library.branch_name %></option>
+    <% end %>
+  </select><br>
+<!--   # vvv select menu bc book belongs to patron
+ --> 
+ <select name="patron">
+    <option>No Patron</option>
+	    <% @patrons.each do |patron| %>
+	      <% if patron.id == @book.patron %>
+	        <% selected = "selected" %>
+	      <% else %>
+	        <% selected = "" %>
+	      <% end %>
+     <option value="<%= patron.id %>" <%= selected %>>
+       <%= patron.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Update Book!">
+</form>

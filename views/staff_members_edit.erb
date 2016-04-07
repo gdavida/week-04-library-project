@@ -1,0 +1,21 @@
+<h1>Edit: <%= @staff_member.name %></h1>
+
+<form action="/staff_members/<%= @staff_member.id %>" method="post">
+  Name:<input type="text" name="name" value="<%= @staff_member.name %>"><br>
+  Email:<input type="text" name="email" value="<%= @staff_member.email %>"><br>
+<!--   # vvv select menu bc staff member belongs to library
+ -->
+  <select name="library">
+    <option>No Library</option>
+      <% @libraries.each do |library| %>
+        <% if library.id == @staff_member.library%>
+          <% selected = "selected" %>
+        <% else %>
+          <% selected = "" %>
+        <% end %>
+     <option value="<%= library.id %>" <%= selected %>>
+       <%= library.branch_name %></option>
+    <% end %>
+  </select><br>
+  <input type="submit" value="Update Staff Member!">
+</form>
