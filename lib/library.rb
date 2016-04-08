@@ -18,6 +18,10 @@ class Library < ActiveRecord::Base
 	validates :address, presence: true, uniqueness: true
 	validates :phone_number, presence: true, uniqueness: true
 
+	def to_s
+		branch_name
+	end
+
 end
 
 ##don't know how to test for uniqueness without a test database

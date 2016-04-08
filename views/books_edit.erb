@@ -6,10 +6,10 @@
   ISBN:<input type="text", name="isbn" value="<%= @book.isbn %>"><br>
 <!--   # vvv select menu bc book belongs to library
  -->
-  <select name="library">
+  <select name="library_id">
     <option>No Library</option>
 	    <% @libraries.each do |library| %>
-	      <% if library.id == @book.library%>
+	      <% if library.id == @book.library_id%>
 	        <% selected = "selected" %>
 	      <% else %>
 	        <% selected = "" %>
@@ -20,10 +20,10 @@
   </select><br>
 <!--   # vvv select menu bc book belongs to patron
  --> 
- <select name="patron">
+ <select name="patron_id">
     <option>No Patron</option>
 	    <% @patrons.each do |patron| %>
-	      <% if patron.id == @book.patron %>
+	      <% if patron.id == @book.patron_id %>
 	        <% selected = "selected" %>
 	      <% else %>
 	        <% selected = "" %>

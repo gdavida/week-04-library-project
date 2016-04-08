@@ -60,7 +60,9 @@ end
 post '/books/:id' do
   @book = Book.find_by_id(params['id'])
   @library = Library.find_by_id(params['library_id'])
+  @libraries = Library.all
   @patron = Patron.find_by_id(params['patron_id'])
+  @patrons = Patron.all
 
   if @book.update_attributes(title: params['title'], # book.rb attributes 
                              author: params['author'],
@@ -118,7 +120,7 @@ post '/libraries/:id' do
 
   if @library.update_attributes(branch_name: params['branch_name'], # library.rb attributes 
                              address: params['address'],
-                             phone: params['phone'])
+                             phone_number: params['phone_number'])
     redirect to("/libraries/#{@library.id}")
   else
     erb :libraries_edit
@@ -169,6 +171,7 @@ end
 post '/staff_members/:id' do
   @staff_member = StaffMember.find_by_id(params['id'])
     @library = Library.find_by_id(params['library_id'])
+    @libraries = Library.all
 
 
   if @staff_member.update_attributes(name: params['name'], # staff_member.rb attributes 

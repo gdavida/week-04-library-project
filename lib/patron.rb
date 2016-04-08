@@ -12,6 +12,11 @@ class Patron < ActiveRecord::Base
   
 	validates :name, presence: true
 	validates :email, presence: true	
+
+def to_s
+	name
+end
+
 end
 
 ##don't know how to test for uniqueness without a test database
