@@ -2,27 +2,35 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container">
+      <div class="container-fluid">
         <h1>Library Manager Branch</h1>
         <p>This is an assignment made as part of my Star City Code School course. I used Ruby, ActiveRecord, and Sinatra to set up this basic library management system for easy access to create, view, and edit records for Books, Libraries, Patrons, and Staff Members</p>
  <!--        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
       </div>
     </div>
 
-    <div class="container">
+
+    <div class="container-fluid">
+
+      <hr>
 	      <!-- Example row of columns -->
 	   	<div class="row">
-				<div class ="col-md-4" style="text-align:center">
-					<a href="/books">
-						<h2>Books</h2>
+        <div class ="col-md-3" style="text-align:center">
+          <a href="/books">
+            <h2>Books</h2>
+          </a>
+        </div>
+        <div class ="col-md-3" style="text-align:center">
+          <a href="/patrons">
+            <h2>Patrons</h2>
+          </a>
+        </div>
+				<div class ="col-md-3" style="text-align:center">
+					<a href="/staff_members">
+						<h2>Staff</h2>
 					</a>
 				</div>
-				<div class ="col-md-4" style="text-align:center">
-					<a href="/people">
-						<h2>People</h2>
-					</a>
-				</div>
-				<div class ="col-md-4" style="text-align:center">
+				<div class ="col-md-3" style="text-align:center">
 					<a href="/libraries">
 						<h2>Libraries</h2>
 					</a>
