@@ -1,3 +1,78 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 title">
+		<% if @book %>
+  		<h1><%= @book.title %></h1> 
+		<% else %>
+  		<p>No book of that ID exists</p>
+		</div>
+	</div>
+   <hr>
+
+	  <!-- TITLE AND NAV BAR -->
+	  <div class="row nav">
+	  	<div class="col-sm-6 col-sm-offset-6">
+	      <div class ="col-xs-3" style="text-align:center">
+	        <a href="/books">
+	          <p>Books</p>
+	        </a>
+	      </div>
+	      <div class ="col-xs-3" style="text-align:center">
+	        <a href="/patrons">
+	          <p><span>|</span>Patrons</p>
+	        </a>
+	      </div>
+				<div class ="col-xs-3" style="text-align:center">
+					<a href="/staff_members">
+						<p><span>|</span>Staff</p>
+					</a>
+				</div>
+				<div class ="col-xs-3" style="text-align:center">
+					<a href="/libraries">
+						<p><span>|</span>Libraries</p>
+					</a>
+				</div>
+			</div>
+    </div>
+   <hr>
+
+   <!-- list of all books -->
+		<ol>
+		  <% @books.each do |book| %>
+		    <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+		  <% end %>
+		</ol>
+	</div>
+</div>
+
+
+<% if @book %>
+  <h1><%= @book.title %></h1>
+
+  <p><em>Author:</em> <%= @book.author %></p>
+  <p><em>ISBN:</em> <%= @book.isbn %></p>
+  <p><em>Library:</em> <%= @book.library ? @book.library : "No Library" %></p>
+  <p><em>Patron:</em> <%= @book.patron ? @book.patron : "No Patron" %></p>
+  <p><a href="/books/<%= @book.id %>/edit">Edit</a></p>
+<% else %>
+  <p>No book of that ID exists</p>
+<% end %>
+
+
+
+   <!-- ADD RECORD -->
+	<div class="row">
+		<div class = "col-sm-3 newRecord" >
+			<a href="/books/new">
+				<p>
+					<i class="fa fa-plus-square"></i>
+					New Book
+				</p>
+			</a>
+		</div>
+	</div>
+
+
 <% if @book %>
   <h1><%= @book.title %></h1>
 
